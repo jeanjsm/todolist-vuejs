@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todolist</title>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <v-app id="app">
+        <v-app-bar app color="primary" dark>
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-toolbar-title>{{ $route.meta.title }}</v-toolbar-title>
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn text to="/">Home</v-btn>
+            <v-btn text to="/hue">404</v-btn>
+        </v-app-bar>
+        <router-view></router-view>
+        <div class="text-center ma-2">
+            <v-snackbar
+                v-model="snackbar.show"
+                :color="snackbar.color"
+                top
+                right
+                vertical
+            >
+                {{snackbar.message}}
+            <v-btn
+                color="dark"
+                text
+                @click="snackbar.show = false"
+            >
+                Fechar
+            </v-btn>
+            </v-snackbar>
+        </div>
+    </v-app>
+</body>
+
+</html>
